@@ -21,12 +21,11 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
-#include "math_3d.h"
+#include "./math_3d.h"
 
 GLuint VBO;
 
-static void RenderSceneCB()
-{
+static void RenderSceneCB() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glEnableVertexAttribArray(0);
@@ -41,24 +40,20 @@ static void RenderSceneCB()
 }
 
 
-static void InitializeGlutCallbacks()
-{
+static void InitializeGlutCallbacks() {
     glutDisplayFunc(RenderSceneCB);
 }
 
-static void CreateVertexBuffer()
-{
+static void CreateVertexBuffer() {
     Vector3f Vertices[1];
     Vertices[0] = Vector3f(0.0f, 0.0f, 0.0f);
-    
- 	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }
 
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
     glutInitWindowSize(1024, 768);
@@ -82,5 +77,3 @@ int main(int argc, char** argv)
 
     return 0;
 }
-
-

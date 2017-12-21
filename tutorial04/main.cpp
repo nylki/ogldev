@@ -26,26 +26,31 @@
 
 GLuint VBO;
 
+static const char* pVS = R"(
+#version 310 es
+#ifdef GL_ES
+precision mediump float;
+#endif
+layout (location = 0) in vec3 Position;
 
-static const char* pVS = "                                                    \n\
-#version 330                                                                  \n\
-                                                                              \n\
-layout (location = 0) in vec3 Position;                                       \n\
-                                                                              \n\
-void main()                                                                   \n\
-{                                                                             \n\
-    gl_Position = vec4(0.5 * Position.x, 0.5 * Position.y, Position.z, 1.0);  \n\
-}";
+void main()
+{
+    gl_Position = vec4(0.5 * Position.x, 0.5 * Position.y, Position.z, 1.0);
+}
+)";
 
-static const char* pFS = "                                                    \n\
-#version 330                                                                  \n\
-                                                                              \n\
-out vec4 FragColor;                                                           \n\
-                                                                              \n\
-void main()                                                                   \n\
-{                                                                             \n\
-    FragColor = vec4(1.0, 0.0, 0.0, 1.0);                                     \n\
-}";
+static const char* pFS = R"(
+#version 310 es
+#ifdef GL_ES
+precision mediump float;
+#endif
+out vec4 FragColor;
+
+void main()
+{
+    FragColor = vec4(0.0, 0.5, 0.0, 1.0);
+})";
+
 
 static void RenderSceneCB()
 {

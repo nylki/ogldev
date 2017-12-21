@@ -53,9 +53,9 @@ static void CreateVertexBuffer()
     Vertices[1] = Vector3f(1.0f, -1.0f, 0.0f);
     Vertices[2] = Vector3f(0.0f, 1.0f, 0.0f);
 
- 	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }
 
 
@@ -84,5 +84,3 @@ int main(int argc, char** argv)
 
     return 0;
 }
-
-
